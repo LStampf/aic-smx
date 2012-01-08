@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="smxb-ping-pong-1.0-SNAPSHOT">
+    <feature name="smxb-ping-pong" version="1.0">
+    	<feature version="1.0">smxb-ping</feature>
+    	<feature version="1.0">smxb-pong</feature>
+    </feature>
+    <feature name="smxb-ping" version="1.0">
+        <bundle>mvn:aic.smx/smxb-pinger/1.0-SNAPSHOT</bundle>
+    </feature>
+    <feature name="smxb-pong" version="1.0">
+        <bundle>mvn:aic.smx/smxb-ponger/1.0-SNAPSHOT</bundle>
+        <bundle>mvn:aic.smx/smxb-ponger-service/1.0-SNAPSHOT</bundle>
+    </feature>
+</features>

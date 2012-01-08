@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>smxb-activemq-bundle</artifactId>
+        <groupId>aic.smx</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../smxb-activemq-bundle</relativePath>
+    </parent>
+
+    <groupId>aic.smx</groupId>
+    <artifactId>smxb-ponger</artifactId>
+    <packaging>bundle</packaging>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>smxb-ponger</name>
+    
+    <properties>
+    	<osgi-import-package>*,org.apache.camel.osgi,aic.smx.ponger</osgi-import-package>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>aic.smx</groupId>
+            <artifactId>smxb-ponger-service</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+		<!-- required for communicating over the NMR -->
+        <dependency>
+            <groupId>org.apache.servicemix</groupId>
+            <artifactId>servicemix-camel</artifactId>
+            <version>${servicemix-version}</version>
+        </dependency>
+    </dependencies>
+	
+</project>
