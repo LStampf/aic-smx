@@ -22,6 +22,8 @@
 	
 	<modules>
 		<module>smxb-ping-pong</module>
+		<module>smxb-credit-api</module>
+		<module>smxb-credit-impl</module>
 	</modules>
 
 </project>

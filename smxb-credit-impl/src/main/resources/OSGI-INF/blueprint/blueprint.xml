@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:camel="http://camel.apache.org/schema/blueprint"
+       xsi:schemaLocation="
+       http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/spring/camel-blueprint.xsd">
+
+    <bean id="contractManagement" class="at.ac.tuwien.infosys.aic11.legacy.internal.ContractManagementLegacy" />
+    <bean id="customerRelations" class="at.ac.tuwien.infosys.aic11.legacy.internal.CustomerRelationsLegacy" />
+    <bean id="rating" class="at.ac.tuwien.infosys.aic11.legacy.internal.RatingLegacy" />
+    <bean id="shipping" class="at.ac.tuwien.infosys.aic11.legacy.internal.ShippingLegacy" />
+    
+    <service id="contractManagementLegacy" interface="at.ac.tuwien.infosys.aic11.legacy.interfaces.IContractManagementLegacy" ref="contractManagement" />
+    <service id="customerRelationsLegacy" interface="at.ac.tuwien.infosys.aic11.legacy.interfaces.ICustomerRelationsLegacy" ref="customerRelations" />
+    <service id="ratingLegacy" interface="at.ac.tuwien.infosys.aic11.legacy.interfaces.IRatingLegacy" ref="rating" />
+    <service id="shippingLegacy" interface="at.ac.tuwien.infosys.aic11.legacy.interfaces.IShippingLegacy" ref="shipping" />
+</blueprint>
