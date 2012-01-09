@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <parent>
+    <artifactId>smx-example-root</artifactId>   
+	<groupId>aic.smx</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <properties>
+    <bundle.symbolicName>aic.smx.credit.api</bundle.symbolicName>
+    <bundle.namespace>aic.smx.credit.api</bundle.namespace>
+  </properties>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>aic.smx</groupId>
+  <artifactId>aic.smx.credit.api</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>AIC-SMX :: Credit-Example :: API</name>
+
+  <packaging>bundle</packaging>
+
+  <description>Model classes and interfaces for the aic1 example</description>
+
+  <build>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Import-Package>*</Import-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
+
