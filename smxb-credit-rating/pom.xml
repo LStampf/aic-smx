@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+      <artifactId>smx-example-root</artifactId>   
+	  <groupId>aic.smx</groupId>
+      <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+      <bundle.symbolicName>aic.smx.credit.rating</bundle.symbolicName>
+      <bundle.namespace>aic.smx.credit.rating</bundle.namespace>
+    </properties>
+    
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>aic.smx</groupId>
+    <artifactId>aic.smx.credit.rating</artifactId>
+    <version>1.0-SNAPSHOT</version>
+        
+    <name>AIC-SMX :: Credit-Example :: Rating Service</name>
+    
+    <packaging>bundle</packaging>
+    
+    <description>Rating service using CXF with JAX-RS. Provides rating information via REST.</description>
+    
+   <!-- <build>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.felix</groupId>
+          <artifactId>maven-bundle-plugin</artifactId>
+          <configuration>
+            <instructions>
+              <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+              <Bundle-Description>${project.description}</Bundle-Description>
+              <Import-Package>
+                javax.wsdl,
+                javax.xml.bind,
+                javax.xml.bind.annotation,
+                javax.ws.rs,
+                javax.ws.rs.core,
+                org.springframework.beans.factory.config,
+                org.apache.servicemix.examples.cxf.jaxrs,
+                org.apache.commons.httpclient,
+                org.apache.commons.httpclient.methods
+              </Import-Package>
+              <Export-Package>
+                at.ac.tuwien.infosys.aic11.services.rating
+              </Export-Package>
+            </instructions>
+          </configuration>
+        </plugin>
+      </plugins>
+    </build>-->
+    
+    <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.felix</groupId>
+        <artifactId>maven-bundle-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <instructions>
+            <Import-Package>*</Import-Package>
+          </instructions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+    
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.servicemix.specs</groupId>
+        <artifactId>org.apache.servicemix.specs.jsr311-api-1.1.1</artifactId>
+        <version>1.9.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.servicemix.specs</groupId>
+        <artifactId>org.apache.servicemix.specs.jaxb-api-2.2</artifactId><!--maybe 2.2 error-->
+        <version>1.9.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.servicemix.bundles</groupId>
+        <artifactId>org.apache.servicemix.bundles.commons-httpclient</artifactId>
+        <version>3.1_5</version>
+      </dependency>
+      <dependency>
+        <groupId>aic.smx</groupId>
+        <artifactId>aic.smx.credit.api</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+
+</project>
