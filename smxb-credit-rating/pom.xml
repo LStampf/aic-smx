@@ -74,7 +74,7 @@
       </dependency>
       <dependency>
         <groupId>org.apache.servicemix.specs</groupId>
-        <artifactId>org.apache.servicemix.specs.jaxb-api-2.2</artifactId><!--maybe 2.2 error-->
+        <artifactId>org.apache.servicemix.specs.jaxb-api-${jaxb.api.version}</artifactId><!--maybe 2.2 error-->
       </dependency>
       <dependency>
         <groupId>org.apache.servicemix.bundles</groupId>
