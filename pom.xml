@@ -9,7 +9,7 @@
 	<packaging>pom</packaging>
 	<version>1.0-SNAPSHOT</version>
 
-	<name>smx-example</name>
+	<name>smxb-root</name>
 
 	<properties>
 		<camel-version>2.8.3</camel-version>
@@ -22,8 +22,7 @@
 	
 	<modules>
 		<module>smxb-ping-pong</module>
-		<module>smxb-credit-api</module>
-		<module>smxb-credit-impl</module>
+		<module>smxb-credit-example</module>
 	</modules>
 
 </project>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="smxb-credit-example-1.0-SNAPSHOT">
+    <feature name="smxb-credit-example" version="1.0">
+    	<feature version="1.0">smxb-credit-api</feature>
+    	<feature version="1.0">smxb-credit-impl</feature>
+    	<feature version="1.0">smxb-credit-rating</feature>
+    </feature>
+    <feature name="smxb-credit-api" version="1.0">
+        <bundle>mvn:aic.smx/aic.smx.credit.api/1.0-SNAPSHOT</bundle>
+    </feature>
+	<feature name="smxb-credit-impl" version="1.0">
+        <bundle>mvn:aic.smx/aic.smx.credit.impl/1.0-SNAPSHOT</bundle>
+    </feature>
+    <feature name="smxb-credit-rating" version="1.0">
+        <bundle>mvn:aic.smx/aic.smx.credit.rating/1.0-SNAPSHOT</bundle>
+    </feature>	
+</features>

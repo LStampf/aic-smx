@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>smx-example-root</artifactId>
+        <groupId>aic.smx</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+	<groupId>aic.smx</groupId>
+	<artifactId>smxb-credit-example</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0-SNAPSHOT</version>
+
+	<name>smxb-credit-example</name>
+	<description>Root project of aic credit-example</description>
+
+	<modules>
+		<module>../smxb-credit-api</module>
+		<module>../smxb-credit-impl</module>
+		<module>../smxb-credit-rating</module>
+	</modules>
+
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <plugins>
+        	<!-- copy features.xml to target -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>${build-plugins-plugin-version}</version>
+                <executions>
+                    <execution>
+                        <id>copy-features</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>target/features</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>src/main/features</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        	<!-- package features.xml for deployment -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build-helper-plugin-version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-artifacts</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attach-artifact</goal>
+                        </goals>
+                        <configuration>
+                            <artifacts>
+                                <artifact>
+                                    <file>target/features/features.xml</file>
+                                    <type>xml</type>
+                                    <classifier>features</classifier>
+                                </artifact>
+                            </artifacts>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <!-- package up a kar for deployment -->
+            <plugin>
+                <groupId>org.apache.karaf.tooling</groupId>
+                <artifactId>features-maven-plugin</artifactId>
+                <version>2.2.5</version>
+                <executions>
+                    <execution>
+                        <id>create-kar</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>create-kar</goal>
+                        </goals>
+                        <configuration>
+                            <featuresFile>src/main/features/features.xml</featuresFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+		</plugins>
+	</build>
+
+</project>
