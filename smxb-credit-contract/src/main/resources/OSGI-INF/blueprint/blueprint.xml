@@ -11,6 +11,13 @@
     <jaxws:endpoint id="contractManagement"
         implementor="#contractManagementImpl"
         address="/ContractManagementService">
+        
+      <jaxws:inInterceptors>
+        <ref component-id="inputDecrypter"/>
+      </jaxws:inInterceptors>
+      <jaxws:outInterceptors>
+        <ref component-id="outputEncrypter"/>
+      </jaxws:outInterceptors>      
     </jaxws:endpoint>
 
     <reference id="contractLegacy" interface="at.ac.tuwien.infosys.aic11.legacy.interfaces.IContractManagementLegacy" />
@@ -18,4 +25,27 @@
     <bean id="contractManagementImpl" class="at.ac.tuwien.infosys.aic11.services.contract.ContractManagementImpl">
        <property name="legacy" ref="contractLegacy"/>
     </bean>
+    
+    <bean id="outputEncrypter" class="org.apache.cxf.ws.security.wss4j.WSS4JOutInterceptor">
+        <argument>
+            <map>
+                <entry key="action" value="Timestamp Signature Encrypt"/>
+                <entry key="user" value="contractmanagementkey"/>
+                <entry key="signaturePropFile" value="keys/serviceKeystore.properties"/>
+                <entry key="encryptionPropFile" value="keys/serviceKeystore.properties"/>
+                <entry key="encryptionUser" value="useReqSigCert"/>
+                <entry key="passwordCallbackClass" value="at.ac.tuwien.infosys.aic11.services.contract.ServiceKeystorePasswordCallback"/>
+            </map>
+        </argument>
+    </bean>       
+      <bean id="inputDecrypter" class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+         <argument>
+            <map>
+               <entry key="action" value="Timestamp Signature Encrypt"/>            
+               <entry key="signaturePropFile" value="keys/serviceKeystore.properties"/>
+               <entry key="decryptionPropFile" value="keys/serviceKeystore.properties"/>     
+               <entry key="passwordCallbackClass" value="at.ac.tuwien.infosys.aic11.services.contract.ServiceKeystorePasswordCallback"/>
+            </map>
+         </argument>
+      </bean>    
 </blueprint>

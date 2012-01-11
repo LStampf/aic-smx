@@ -10,6 +10,7 @@
 
     <jaxws:endpoint id="customerRelationsManagement"
         implementor="#customerRelationsManagementImpl"
+        implementorClass="at.ac.tuwien.infosys.aic11.services.crm.CustomerRelationsManagement"
         address="/CustomerRelationsManagementService">
     </jaxws:endpoint>
 

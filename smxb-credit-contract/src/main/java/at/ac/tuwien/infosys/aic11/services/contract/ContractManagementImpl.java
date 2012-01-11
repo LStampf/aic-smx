@@ -1,10 +1,13 @@
 package at.ac.tuwien.infosys.aic11.services.contract;
 
+import javax.jws.WebService;
+
 import at.ac.tuwien.infosys.aic11.dto.CreditRequest;
 import at.ac.tuwien.infosys.aic11.dto.Offer;
 import at.ac.tuwien.infosys.aic11.legacy.exceptions.OfferDoesNotExistException;
 import at.ac.tuwien.infosys.aic11.legacy.interfaces.IContractManagementLegacy;
 
+@WebService(endpointInterface="at.ac.tuwien.infosys.aic11.services.contract.ContractManagement")
 public class ContractManagementImpl implements ContractManagement {
 	IContractManagementLegacy legacy;
 

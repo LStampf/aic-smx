@@ -76,7 +76,7 @@
                 <extensions>true</extensions>
                 <configuration>
                   <instructions>
-                     <Import-Package>*</Import-Package>
+                    <Require-Bundle>org.apache.cxf.bundle</Require-Bundle>
                   </instructions>
                 </configuration>
             </plugin>
