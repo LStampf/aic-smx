@@ -5,6 +5,7 @@
     	<feature version="1.0">smxb-credit-impl</feature>
     	<feature version="1.0">smxb-credit-rating</feature>
 	    <feature version="1.0">smxb-credit-contract</feature>	
+	    <feature version="1.0">smxb-credit-crm</feature>	
     </feature>
     <feature name="smxb-credit-api" version="1.0">
         <bundle>mvn:aic.smx/aic.smx.credit.api/1.0-SNAPSHOT</bundle>

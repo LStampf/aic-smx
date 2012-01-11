@@ -13,9 +13,9 @@
         address="/CustomerRelationsManagementService">
     </jaxws:endpoint>
 
-    <reference id="crmLegacy" interface="at.ac.tuwien.infosys.aic11.legacy.interfaces.ICustomerRelationsManagementLegacy" />
+    <reference id="crmLegacy" interface="at.ac.tuwien.infosys.aic11.legacy.interfaces.ICustomerRelationsLegacy" />
     
-    <bean id="customerRelationsManagementImpl" class="at.ac.tuwien.infosys.aic11.services.contract.CustomerRelationsManagementImpl">
+    <bean id="customerRelationsManagementImpl" class="at.ac.tuwien.infosys.aic11.services.crm.CustomerRelationsManagementImpl">
        <property name="legacy" ref="crmLegacy"/>
     </bean>
 </blueprint>
