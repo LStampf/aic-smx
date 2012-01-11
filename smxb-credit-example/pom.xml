@@ -22,7 +22,8 @@
 		<module>../smxb-credit-api</module>
 		<module>../smxb-credit-impl</module>
 		<module>../smxb-credit-rating</module>
-	    <module>../smxb-credit-contract</module>	
+	    <module>../smxb-credit-contract</module>
+	    <module>../smxb-credit-crm</module>	
 	</modules>
 
     <build>
