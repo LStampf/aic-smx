@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<blueprint
+    xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:jaxws="http://cxf.apache.org/blueprint/jaxws"
+    xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+                         http://cxf.apache.org/blueprint/jaxws http://cxf.apache.org/schemas/blueprint/jaxws.xsd">
+
+
+    <jaxws:endpoint id="shippingManager"
+        implementor="#shippingImpl"
+        implementorClass="at.ac.tuwien.infosys.aic11.services.shipping.Shipping"
+        address="/ShippingService">
+    </jaxws:endpoint>
+
+    <reference id="shippingLegacy" interface="at.ac.tuwien.infosys.aic11.legacy.interfaces.IShippingLegacy" />
+    
+    <bean id="shippingImpl" class="at.ac.tuwien.infosys.aic11.services.shipping.ShippingImpl">
+       <property name="shippingService" ref="shippingLegacy"/>
+    </bean>
+</blueprint>

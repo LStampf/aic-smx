@@ -13,7 +13,7 @@ import at.ac.tuwien.infosys.aic11.legacy.interfaces.ICustomerRelationsLegacy;
 public class CustomerRelationsManagementImpl implements
         CustomerRelationsManagement {
 
-    ICustomerRelationsLegacy legacy;
+    private ICustomerRelationsLegacy legacy;
 
     public void setLegacy(ICustomerRelationsLegacy legacy) {
         this.legacy = legacy;
