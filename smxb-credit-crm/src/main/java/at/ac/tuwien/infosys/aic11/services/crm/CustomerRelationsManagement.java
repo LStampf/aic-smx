@@ -14,7 +14,7 @@ public interface CustomerRelationsManagement {
 
 	@WebMethod(operationName = "get_customer_by_id")
 	@WebResult(name = "customer")
-	public Customer getCustomerById(@WebParam(name = "customer_id") Long id)
+	public Customer getCustomerById(@WebParam(name = "customerId") Long id)
 			throws CustomerRelationsManagementException;
 
 	@WebMethod(operationName = "get_all_customers")
@@ -22,7 +22,7 @@ public interface CustomerRelationsManagement {
 	public List<Customer> getAllCustomers();
 
 	@WebMethod(operationName = "save_customer")
-	public void saveCustomer(@WebParam(name = "new_customer") Customer customer)
+	public void saveCustomer(@WebParam(name = "newCustomer") Customer customer)
 			throws CustomerRelationsManagementException;
 
 }

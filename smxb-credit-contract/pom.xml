@@ -73,6 +73,7 @@
         <dependency>
             <groupId>aic.smx</groupId>
             <artifactId>aic.smx.credit.api</artifactId>
+            <scope>provided</scope>            
             <version>1.0-SNAPSHOT</version>
       </dependency>
     </dependencies>

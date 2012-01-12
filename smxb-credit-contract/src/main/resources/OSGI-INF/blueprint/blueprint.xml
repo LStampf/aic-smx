@@ -10,6 +10,7 @@
 
     <jaxws:endpoint id="contractManagement"
         implementor="#contractManagementImpl"
+        implementorClass="at.ac.tuwien.infosys.aic11.services.contract.ContractManagement"
         address="/ContractManagementService">
         
       <jaxws:inInterceptors>

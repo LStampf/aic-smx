@@ -32,9 +32,8 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <extensions>true</extensions>
         <configuration>
-          <instructions>
-            <Import-Package>*</Import-Package>
-          </instructions>
+          <Export-Package>at.ac.tuwien.infosys.aic11.dto</Export-Package>
+          <Require-Bundle>org.apache.cxf.bundle</Require-Bundle>
         </configuration>
       </plugin>
     </plugins>
