@@ -16,6 +16,7 @@
     </feature>
     <feature name="smxb-credit-rating" version="1.0">
         <bundle>mvn:aic.smx/aic.smx.credit.rating/1.0-SNAPSHOT</bundle>
+		<bundle>mvn:aic.smx/aic.smx.credit.rating-ws/1.0-SNAPSHOT</bundle>
     </feature>	
     <feature name="smxb-credit-contract" version="1.0">
         <bundle>mvn:aic.smx/aic.smx.credit.contract/1.0-SNAPSHOT</bundle>
