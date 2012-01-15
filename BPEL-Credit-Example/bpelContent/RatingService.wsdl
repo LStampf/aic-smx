@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="RatingServiceService" targetNamespace="http://at.ac.tuwien.infosys.aic11.services" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://at.ac.tuwien.infosys.aic11.services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://at.ac.tuwien.infosys.aic11.services" xmlns="http://at.ac.tuwien.infosys.aic11.services" xmlns:ns1="http://at.ac.tuwien.infosys.aic11.dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:import namespace="http://at.ac.tuwien.infosys.aic11.dto"/>
+<xs:complexType name="getRating">
+<xs:sequence>
+<xs:element minOccurs="0" name="arg0" type="xs:long"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="getRatingResponse">
+<xs:sequence>
+<xs:element minOccurs="0" name="return" type="ns1:rating"/>
+</xs:sequence>
+</xs:complexType>
+<xs:element name="get_rating" nillable="true" type="getRating"/>
+<xs:element name="get_ratingResponse" nillable="true" type="getRatingResponse"/>
+<xs:element name="RatingException" type="RatingException"/>
+<xs:complexType name="RatingException">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>
+<xs:schema targetNamespace="http://at.ac.tuwien.infosys.aic11.dto" version="1.0" xmlns:tns="http://at.ac.tuwien.infosys.aic11.dto" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="rating" type="tns:rating"/>
+<xs:complexType name="rating">
+<xs:sequence>
+<xs:element name="customer_rating" type="tns:customerRating"/>
+</xs:sequence>
+</xs:complexType>
+<xs:simpleType name="customerRating">
+<xs:restriction base="xs:string">
+<xs:enumeration value="AAA"/>
+<xs:enumeration value="AAPlus"/>
+<xs:enumeration value="AA"/>
+<xs:enumeration value="AAMinus"/>
+<xs:enumeration value="APlus"/>
+<xs:enumeration value="A"/>
+<xs:enumeration value="AMinus"/>
+<xs:enumeration value="Defaulting"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="RatingException">
+    <wsdl:part element="tns:RatingException" name="RatingException">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get_rating">
+    <wsdl:part element="tns:get_rating" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="get_ratingResponse">
+    <wsdl:part element="tns:get_ratingResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="RatingService">
+    <wsdl:operation name="get_rating">
+      <wsdl:input message="tns:get_rating" name="get_rating">
+    </wsdl:input>
+      <wsdl:output message="tns:get_ratingResponse" name="get_ratingResponse">
+    </wsdl:output>
+      <wsdl:fault message="tns:RatingException" name="RatingException">
+    </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RatingServiceServiceSoapBinding" type="tns:RatingService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="get_rating">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="get_rating">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="get_ratingResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="RatingException">
+        <soap:fault name="RatingException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="RatingServiceService">
+    <wsdl:port binding="tns:RatingServiceServiceSoapBinding" name="RatingServicePort">
+      <soap:address location="http://localhost:8181/cxf/RatingService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://at.ac.tuwien.infosys.aic11.services" xmlns:vprop="http://docs.oasis-open.org/wsbpel/2.0/varprop" name="GenerateOffer" targetNamespace="http://at.ac.tuwien.infosys.aic11.services">
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     TYPE DEFINITION - List of types participating in this BPEL process 
+     The BPEL Designer will generate default request and response types
+     but you can define or import any XML Schema type and use them as part 
+     of the message types.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="RatingLinkType">
+    <plnk:role name="RatingRole" portType="tns:RatingService"/>
+  </plnk:partnerLinkType>
+    <import location="RatingService.wsdl" namespace="http://at.ac.tuwien.infosys.aic11.services"/>
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:Q1="at.ac.tuwien.infosys.aic11.dto" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://at.ac.tuwien.infosys.aic11.services">
+
+            <import namespace="at.ac.tuwien.infosys.aic11.dto" schemaLocation="dto.xsd"/>
+            <element name="GenerateOfferRequest">
+                <complexType>
+                    <sequence>
+                        <element name="input" type="Q1:creditRequest"/>
+                    </sequence>
+                </complexType>
+            </element>
+
+            <element name="GenerateOfferResponse">
+                <complexType>
+                    <sequence>
+                        <element name="result" type="Q1:creditRequest"/>
+                    </sequence>
+                </complexType>
+            </element>
+        </schema>
+    </types>
+
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     MESSAGE TYPE DEFINITION - Definition of the message types used as 
+     part of the port type defintions
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <message name="GenerateOfferRequestMessage">
+        <part element="tns:GenerateOfferRequest" name="payload"/>
+    </message>
+    <message name="GenerateOfferResponseMessage">
+        <part element="tns:GenerateOfferResponse" name="payload"/>
+    </message>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PORT TYPE DEFINITION - A port type groups a set of operations into
+     a logical service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+
+    <!-- portType implemented by the GenerateOffer BPEL process -->
+    <portType name="GenerateOffer">
+        <operation name="process">
+            <input message="tns:GenerateOfferRequestMessage"/>
+            <output message="tns:GenerateOfferResponseMessage"/>
+        </operation>
+    </portType>   
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     PARTNER LINK TYPE DEFINITION
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->    
+    <plnk:partnerLinkType name="GenerateOffer">
+        <plnk:role name="GenerateOfferProvider" portType="tns:GenerateOffer"/>
+    </plnk:partnerLinkType>
+    
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     BINDING DEFINITION - Defines the message format and protocol details
+     for a web service.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <binding name="GenerateOfferBinding" type="tns:GenerateOffer">
+    	<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    	<operation name="process">
+    		<soap:operation soapAction="http://at.ac.tuwien.infosys.aic11.services/process"/>
+    		<input>
+    			<soap:body use="literal"/>
+    		</input>
+    		<output>
+    			<soap:body use="literal"/>
+    		</output>
+    	</operation>
+    </binding>
+
+<!-- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     SERVICE DEFINITION - A service groups a set of ports into
+     a service unit.
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+    <service name="GenerateOffer">
+    	<port binding="tns:GenerateOfferBinding" name="GenerateOfferPort">
+    		<soap:address location="http://localhost:8080/ode/processes/GenerateOffer"/>
+    	</port>
+    </service>
+</definitions>
