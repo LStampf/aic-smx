@@ -15,7 +15,7 @@ import javax.xml.ws.Service;
  * 
  */
 @WebServiceClient(name = "ShippingService", 
-                  wsdlLocation = "http://localhost:8093/ShippingService?wsdl",
+                  wsdlLocation = "http://localhost:8181/cxf/ShippingService?wsdl",
                   targetNamespace = "http://at.ac.tuwien.infosys.aic11.services") 
 public class ShippingService extends Service {
 
@@ -26,7 +26,7 @@ public class ShippingService extends Service {
     static {
         URL url = null;
         try {
-            url = new URL("http://localhost:8093/ShippingService?wsdl");
+            url = new URL("http://localhost:8181/cxf/ShippingService?wsdl");
         } catch (MalformedURLException e) {
             java.util.logging.Logger.getLogger(ShippingService.class.getName())
                 .log(java.util.logging.Level.INFO, 

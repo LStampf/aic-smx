@@ -12,7 +12,7 @@ public interface ContractManagement {
 
 	@WebMethod(operationName = "create_offer")
 	public Offer createOffer(
-			@WebParam(name = "credit_request") CreditRequest creditRequest)
+			@WebParam(name = "creditRequest") CreditRequest creditRequest)
 			throws ContractManagementException;
 
 	@WebMethod(operationName = "accept_offer")
