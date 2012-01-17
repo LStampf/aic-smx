@@ -8,11 +8,9 @@ import javax.xml.ws.Response;
 
 import dto.aic11.infosys.tuwien.ac.at.Offer;
 
-import at.ac.tuwien.infosys.aic11.services.shipping.ShippingImpl;
-
 public class ShipContractCallback implements AsyncHandler<ShipContractResponse> {
 
-	private static final Logger LOGGER = Logger.getLogger(ShippingImpl.class
+	private static final Logger LOGGER = Logger.getLogger(ShipContractCallback.class
 			.getName());
 
 	@Override
