@@ -51,4 +51,14 @@
             </map>
          </argument>
       </bean>    
+      
+     <reference id="mbeanServer" interface="javax.management.MBeanServer"/>
+
+     <bean id="org.apache.cxf.management.InstrumentationManager"
+         class="org.apache.cxf.management.jmx.InstrumentationManagerImpl">
+       <property name="bus" ref="cxf" />
+       <property name="enabled" value="true" />
+       <property name="createMBServerConnectorFactory" value="false" />
+       <property name="server" ref="mbeanServer" /> 
+     </bean>      
 </blueprint>

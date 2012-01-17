@@ -39,4 +39,14 @@ http://www.springframework.org/schema/osgi http://www.springframework.org/schema
     
     <osgi:reference id="ratingLegacy" interface="at.ac.tuwien.infosys.aic11.legacy.interfaces.IRatingLegacy"/>
 
+    <osgi:reference id="mbeanServer" interface="javax.management.MBeanServer" cardinality="0..1"/>
+
+     <bean id="org.apache.cxf.management.InstrumentationManager"
+         class="org.apache.cxf.management.jmx.InstrumentationManagerImpl">
+       <property name="bus" ref="cxf" />
+       <property name="enabled" value="true" />
+       <property name="createMBServerConnectorFactory" value="false" />
+       <property name="server" ref="mbeanServer" /> 
+     </bean>
+
 </beans>

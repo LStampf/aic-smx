@@ -5,15 +5,12 @@ import java.util.concurrent.Future;
 import org.apache.cxf.endpoint.Client;
 import org.apache.cxf.jaxws.endpoint.dynamic.JaxWsDynamicClientFactory;
 
-import at.ac.tuwien.infosys.aic11.services.Address;
-import at.ac.tuwien.infosys.aic11.services.registry.IRegistryService;
-import at.ac.tuwien.infosys.aic11.services.registry.InvalidParameterException;
-import at.ac.tuwien.infosys.aic11.services.registry.RegistryService;
-import at.ac.tuwien.infosys.aic11.services.registry.WsdlEndpoint;
-
 import services.aic11.infosys.tuwien.ac.at.ShipContractCallback;
 import services.aic11.infosys.tuwien.ac.at.Shipping;
 import services.aic11.infosys.tuwien.ac.at.ShippingService;
+import at.ac.tuwien.infosys.aic11.services.registry.IRegistryService;
+import at.ac.tuwien.infosys.aic11.services.registry.RegistryService;
+import at.ac.tuwien.infosys.aic11.services.registry.WsdlEndpoint;
 import dto.aic11.infosys.tuwien.ac.at.Addresses;
 import dto.aic11.infosys.tuwien.ac.at.BankTransfer;
 import dto.aic11.infosys.tuwien.ac.at.Cheque;
@@ -131,6 +128,7 @@ public class ShippingHandler {
 		
 		IRegistryService registry = new RegistryService().getRegistryService();
 		Client client = null;
+		Future<?> future = this.shippingService.shipContractAsync(externalOffer, this.callback);
 		
 		if( offer.getCreditRequest().getCustomer().getDisbursementPreference() instanceof 
 				at.ac.tuwien.infosys.aic11.dto.Cheque ) {
@@ -156,7 +154,6 @@ public class ShippingHandler {
 			client.invoke("start_money_transfer_process", bankTransfer, registryMoney, registryCustomer);
 		}
 		
-		Future<?> future = this.shippingService.shipContractAsync(externalOffer, this.callback);
 		while (!future.isDone()) {
 			Thread.sleep(100);
 		}
