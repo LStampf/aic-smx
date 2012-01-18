@@ -1,0 +1,9 @@
+C:\Users\Gerald\Studium\6. Semester\Advanced Internet Computing\Assignment 2\BankProductCreator\BankProductCreator\bin\Debug\BankProductCreator.exe
+C:\Users\Gerald\Studium\6. Semester\Advanced Internet Computing\Assignment 2\BankProductCreator\BankProductCreator\bin\Debug\BankProductCreator.pdb
+C:\Users\Gerald\Studium\6. Semester\Advanced Internet Computing\Assignment 2\BankProductCreator\BankProductCreator\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Gerald\Studium\6. Semester\Advanced Internet Computing\Assignment 2\BankProductCreator\BankProductCreator\obj\x86\Debug\BankProductCreator.Form1.resources
+C:\Users\Gerald\Studium\6. Semester\Advanced Internet Computing\Assignment 2\BankProductCreator\BankProductCreator\obj\x86\Debug\BankProductCreator.Properties.Resources.resources
+C:\Users\Gerald\Studium\6. Semester\Advanced Internet Computing\Assignment 2\BankProductCreator\BankProductCreator\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Gerald\Studium\6. Semester\Advanced Internet Computing\Assignment 2\BankProductCreator\BankProductCreator\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Gerald\Studium\6. Semester\Advanced Internet Computing\Assignment 2\BankProductCreator\BankProductCreator\obj\x86\Debug\BankProductCreator.exe
+C:\Users\Gerald\Studium\6. Semester\Advanced Internet Computing\Assignment 2\BankProductCreator\BankProductCreator\obj\x86\Debug\BankProductCreator.pdb

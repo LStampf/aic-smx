@@ -35,6 +35,8 @@
 		<module>smxb-ping-pong</module>
 		<module>smxb-credit-example</module>
 		<module>integrate_legacy</module>
+		<module>integration_example\csvrmi_blueprint\aic.esb.a.csvrmi</module>
+		<module>integration_example\rmiserver_osgi\aic.esb.a.rmi.rmiserver</module>
   </modules>
 
 </project>
