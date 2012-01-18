@@ -34,6 +34,7 @@
 	<modules>
 		<module>smxb-ping-pong</module>
 		<module>smxb-credit-example</module>
+		<module>integrate_legacy</module>
   </modules>
 
 </project>

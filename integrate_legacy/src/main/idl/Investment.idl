@@ -1,0 +1,8 @@
+//IDL
+module at { module ac { module tuwien { module infosys { module aic11 { module integrate_legacy { module corba {
+
+    interface Investment {
+        long placeInvestment (in string name, in double minDeposit, in long minDuration, in long revenue );
+    };
+
+}; }; }; }; }; }; };
